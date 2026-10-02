@@ -1,0 +1,24 @@
+[project]
+name = "imagen-converter"
+version = "2.0.0"
+description = "Image format converter (AVIF, WebP, PNG, JPEG) for Linux with a Qt GUI"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+dependencies = [
+    "PySide6-Essentials>=6.8",
+    "Pillow>=12.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["src", "src.core", "src.gui", "src.utils", "src.batch"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
