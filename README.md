@@ -82,4 +82,4 @@ tests/               unit, integration and GUI tests
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).
