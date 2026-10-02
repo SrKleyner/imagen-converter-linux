@@ -25,14 +25,17 @@ Strategy: ask-on-risk. Forecast ~700 authored lines (mostly GUI + tests).
 
 ## Tasks
 - [x] T1 Baseline: copy core/batch/utils + tests, venv, 96 tests green on Linux. Route: inline (mechanical copy).
-- [ ] T2 Qt GUI (app window, input, options, progress widgets) with offscreen tests. Route: delegated writer (2+ non-trivial files).
+- [x] T2 Qt GUI (app window, input, options, progress widgets) with offscreen tests. Route: delegated writer (2+ non-trivial files).
 - [ ] T3 Linux packaging: `main.py`, `run.sh`, `.desktop` install script, pyproject/requirements, README. Route: delegated writer.
 
 ## Acceptance criteria
 - `pytest` green; app launches on Wayland; drag-and-drop from Dolphin works; conversion of single file and folder works.
 
 ## Progress / Evidence
+- T2: commit ffb120d (+898 lines: 643 src, 255 tests). RED: ModuleNotFoundError for gui modules; GREEN: 123 passed (parent spot check re-ran: 123 passed). No PIL import in src/gui or src/app.py (enforced by tests/gui/test_boundary.py). Offscreen window construction OK. Review assess: medium (executable_change), review_due=slice_budget_reached; RDD off (global) so no review started; writer self-verified (sonnet). No remote/PR, so delivery slicing not applicable.
+  Gaps: real Dolphin drag-and-drop and Wayland launch not verified yet (manual check).
+- Engram mirror: PENDING (ambiguous_project from cwd; resync later).
 - T1: `pytest -q` → 96 passed; `probe_avif()` → True (Pillow 12.3.0, PySide6 6.11.2).
 
 ## Next step
-T2.
+T3.
